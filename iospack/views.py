@@ -13,6 +13,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 class GroupViewSet(viewsets.ModelViewSet):
     """
     允许查看和编辑group的 API endpoint
@@ -20,9 +21,12 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
+
 class AppsViewSet(viewsets.ModelViewSet):
     """
     允许查看和编辑app的 API endpoint
     """
     queryset = AppInfo.objects.all()
     serializer_class = AppInfoSerializer
+
+    lookup_field = 'bundle_id'
