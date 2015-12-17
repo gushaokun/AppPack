@@ -41,10 +41,10 @@ INSTALLED_APPS = (
     'iospack'
 )
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY' : 10
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAdminUser',),
+#     'PAGINATE_BY' : 10
+# }
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
