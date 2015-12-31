@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.models import User, Group
-from iospack.models import AppInfo
+from iospack.models import App
 from rest_framework import viewsets
-from iospack.serializers import UserSerializer, GroupSerializer, AppInfoSerializer
+from rest_framework import generics
+from iospack.serializers import UserSerializer, GroupSerializer, AppSerializer
 
 
 # Create your views here.
@@ -26,7 +27,14 @@ class AppsViewSet(viewsets.ModelViewSet):
     """
     允许查看和编辑app的 API endpoint
     """
-    queryset = AppInfo.objects.all()
-    serializer_class = AppInfoSerializer
-
+    queryset = App.objects.all()
+    serializer_class = AppSerializer
     lookup_field = 'bundle_id'
+
+class app(generics.RetrieveUpdateDestroyAPIView):
+    """
+    根据app_id获取app信息
+    """
+    queryset = App.objects.all()
+    serializer_class = AppSerializer
+    lookup_field = 'id'
